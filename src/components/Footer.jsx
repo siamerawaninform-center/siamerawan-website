@@ -8,7 +8,9 @@ export default function Footer() {
         <div className="footer-grid">
           <div>
             <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 16 }}>
-              <span className="brand-mark">SE</span>
+              <span className="brand-mark">
+                <img src="/images/brand/icon.png" alt="ตราสัญลักษณ์ สยาม เอราวัณ คอนสตรัคชั่น" />
+              </span>
               <div>
                 <div style={{ fontWeight: 700 }}>บริษัท สยาม เอราวัณ คอนสตรัคชั่น จำกัด</div>
                 <div className="brand-text-en">Siam Erawan Construction Co., Ltd.</div>
@@ -37,10 +39,10 @@ export default function Footer() {
               779 ม.1 ถ.สุขุมวิท ต.บางปู<br />อ.เมืองสมุทรปราการ จ.สมุทรปราการ 10280
             </p>
             <p style={{ marginBottom: 6 }}>
-              <a href="tel:0988257519" style={{ color: '#f2d97a' }}>098-825-7519 (คุณสมัคร)</a>
+              <a href="tel:0988257519" style={{ color: '#e2626a' }}>098-825-7519 (คุณสมัคร)</a>
             </p>
             <p>
-              <a href="mailto:siamerawan.inform@gmail.com" style={{ color: '#f2d97a' }}>
+              <a href="mailto:siamerawan.inform@gmail.com" style={{ color: '#e2626a' }}>
                 siamerawan.inform@gmail.com
               </a>
             </p>

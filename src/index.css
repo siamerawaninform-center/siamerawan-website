@@ -11,7 +11,9 @@
   --steel-light: #948e85;
   --line: #d6d0c4;
   --yellow: #eeb121;
-  --yellow-deep: #c98f14;
+  --accent: #c8262f;
+  --accent-deep: #971d24;
+  --accent-soft: #e6c9c2;
 
   --font-display: 'Oswald', 'IBM Plex Sans Thai', sans-serif;
   --font-body: 'IBM Plex Sans Thai', system-ui, sans-serif;
@@ -57,8 +59,31 @@ img { max-width: 100%; display: block; }
 button { font-family: inherit; cursor: pointer; }
 
 :focus-visible {
-  outline: 3px solid var(--yellow);
+  outline: 3px solid var(--accent);
   outline-offset: 2px;
+}
+
+/* ---------- Scroll reveal ---------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+.reveal.in {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal-scale {
+  opacity: 0;
+  transform: scale(0.94);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal-scale.in {
+  opacity: 1;
+  transform: scale(1);
 }
 
 .eyebrow {
@@ -70,7 +95,7 @@ button { font-family: inherit; cursor: pointer; }
   color: var(--burgundy);
 }
 
-.eyebrow.on-dark { color: var(--yellow); }
+.eyebrow.on-dark { color: var(--accent); }
 
 .wrap {
   max-width: 1180px;
@@ -114,6 +139,12 @@ button { font-family: inherit; cursor: pointer; }
   height: 100%;
   object-fit: cover;
   display: block;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+a:hover > .site-tag img,
+.site-tag:hover img {
+  transform: scale(1.07);
 }
 
 .site-tag::before,
@@ -124,7 +155,7 @@ button { font-family: inherit; cursor: pointer; }
   position: absolute;
   width: 22px;
   height: 22px;
-  border: 2.5px solid var(--yellow);
+  border: 2.5px solid var(--accent);
   z-index: 2;
   pointer-events: none;
 }
@@ -137,7 +168,7 @@ button { font-family: inherit; cursor: pointer; }
   bottom: 8px;
   z-index: 3;
   background: var(--charcoal);
-  color: var(--yellow);
+  color: var(--accent);
   font-family: var(--font-display);
   font-size: 0.68rem;
   letter-spacing: 0.08em;
@@ -157,16 +188,18 @@ button { font-family: inherit; cursor: pointer; }
   font-size: 0.95rem;
   letter-spacing: 0.03em;
   border: 2px solid transparent;
-  transition: transform 0.15s ease, background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), background 0.15s ease, color 0.15s ease, border-color 0.15s ease, box-shadow 0.2s ease;
   white-space: nowrap;
 }
-.btn:active { transform: translateY(1px); }
+.btn:hover { transform: translateY(-2px); }
+.btn:active { transform: translateY(0); }
+.btn-primary:hover { box-shadow: 0 10px 24px -8px rgba(200, 38, 47, 0.55); }
 
 .btn-primary {
-  background: var(--yellow);
-  color: var(--charcoal);
+  background: var(--accent);
+  color: #fff;
 }
-.btn-primary:hover { background: var(--yellow-deep); }
+.btn-primary:hover { background: var(--accent-deep); }
 
 .btn-outline {
   background: transparent;
@@ -204,17 +237,20 @@ button { font-family: inherit; cursor: pointer; }
 }
 
 .brand-mark {
-  width: 38px;
-  height: 38px;
-  background: var(--yellow);
-  color: var(--charcoal);
+  width: 44px;
+  height: 44px;
+  background: #ffffff;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 1.05rem;
+  border-radius: 6px;
   flex-shrink: 0;
+  padding: 5px;
+}
+.brand-mark img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
 .brand-text-th {
@@ -244,7 +280,7 @@ button { font-family: inherit; cursor: pointer; }
   padding: 10px 14px;
   position: relative;
 }
-.nav a.active { color: var(--yellow); }
+.nav a.active { color: var(--accent); }
 .nav a::after {
   content: '';
   position: absolute;
@@ -252,7 +288,7 @@ button { font-family: inherit; cursor: pointer; }
   right: 14px;
   bottom: 6px;
   height: 2px;
-  background: var(--yellow);
+  background: var(--accent);
   transform: scaleX(0);
   transition: transform 0.2s ease;
   transform-origin: left;
@@ -261,8 +297,8 @@ button { font-family: inherit; cursor: pointer; }
 
 .nav-phone {
   font-family: var(--font-display);
-  color: var(--charcoal);
-  background: var(--yellow);
+  color: #fff;
+  background: var(--accent);
   padding: 10px 16px;
   font-size: 0.9rem;
   font-weight: 600;
@@ -323,7 +359,7 @@ button { font-family: inherit; cursor: pointer; }
   text-transform: uppercase;
   letter-spacing: 0.1em;
   font-size: 0.78rem;
-  color: var(--yellow);
+  color: var(--accent);
   margin-bottom: 14px;
 }
 
@@ -365,6 +401,22 @@ button { font-family: inherit; cursor: pointer; }
   gap: 22px;
 }
 
+@keyframes hero-in {
+  from { opacity: 0; transform: translateY(22px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.hero-copy > * {
+  animation: hero-in 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.hero-copy > *:nth-child(1) { animation-delay: 0.05s; }
+.hero-copy > *:nth-child(2) { animation-delay: 0.16s; }
+.hero-copy > *:nth-child(3) { animation-delay: 0.27s; }
+.hero-copy > *:nth-child(4) { animation-delay: 0.38s; }
+.hero-photo {
+  animation: hero-in 1.1s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation-delay: 0.1s;
+}
+
 @media (max-width: 900px) {
   .hero-copy { padding: 56px 24px 40px; }
 }
@@ -376,7 +428,7 @@ button { font-family: inherit; cursor: pointer; }
   line-height: 1.15;
 }
 
-.hero-title .accent { color: var(--yellow); }
+.hero-title .accent { color: var(--accent); }
 
 .hero-sub {
   font-size: 1.08rem;
@@ -429,7 +481,7 @@ button { font-family: inherit; cursor: pointer; }
 .hero-slogan-bar .item:last-child { border-right: none; }
 .hero-slogan-bar .num {
   font-family: var(--font-display);
-  color: var(--yellow);
+  color: var(--accent);
   font-size: 0.75rem;
   letter-spacing: 0.1em;
 }
@@ -479,6 +531,14 @@ button { font-family: inherit; cursor: pointer; }
   background: var(--paper-raised);
   display: grid;
   grid-template-columns: 130px 1fr;
+  transition: box-shadow 0.3s ease, transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  z-index: 1;
+}
+.service-card:hover {
+  box-shadow: 0 18px 36px -18px rgba(20, 18, 16, 0.35);
+  transform: translateY(-4px);
+  z-index: 2;
 }
 @media (max-width: 560px) {
   .service-card { grid-template-columns: 1fr; }
@@ -498,7 +558,7 @@ button { font-family: inherit; cursor: pointer; }
 .service-card .body { padding: 26px 24px; }
 .service-card .idx {
   font-family: var(--font-display);
-  color: var(--yellow-deep);
+  color: var(--accent);
   font-size: 0.8rem;
   letter-spacing: 0.08em;
 }
@@ -540,7 +600,7 @@ button { font-family: inherit; cursor: pointer; }
 .stat .n {
   font-family: var(--font-display);
   font-size: clamp(2rem, 4vw, 2.6rem);
-  color: var(--yellow);
+  color: #fff;
   font-weight: 600;
 }
 .stat .label {
@@ -564,12 +624,19 @@ button { font-family: inherit; cursor: pointer; }
   background: var(--paper-raised);
   color: var(--steel);
   letter-spacing: 0.02em;
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+.filter-chip:hover {
+  border-color: var(--burgundy);
+  color: var(--burgundy);
+  transform: translateY(-1px);
 }
 .filter-chip.active {
   background: var(--burgundy);
   border-color: var(--burgundy);
   color: var(--paper);
 }
+.filter-chip.active:hover { color: var(--paper); }
 
 .portfolio-grid {
   display: grid;
@@ -583,8 +650,18 @@ button { font-family: inherit; cursor: pointer; }
   .portfolio-grid { grid-template-columns: 1fr; }
 }
 
+.project-card {
+  display: block;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.project-card:hover { transform: translateY(-5px); }
+
 .project-card .site-tag {
   aspect-ratio: 4/3;
+  transition: box-shadow 0.3s ease;
+}
+.project-card:hover .site-tag {
+  box-shadow: 0 20px 40px -16px rgba(20, 18, 16, 0.4);
 }
 
 .project-card .meta {
@@ -593,7 +670,7 @@ button { font-family: inherit; cursor: pointer; }
 .project-card .cat {
   font-family: var(--font-display);
   font-size: 0.72rem;
-  color: var(--yellow-deep);
+  color: var(--accent);
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
@@ -686,7 +763,7 @@ button { font-family: inherit; cursor: pointer; }
   font-size: 0.75rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--yellow-deep);
+  color: var(--accent);
   width: 90px;
   flex-shrink: 0;
   padding-top: 3px;
@@ -720,7 +797,7 @@ button { font-family: inherit; cursor: pointer; }
   margin-top: 24px;
   padding: 12px 20px;
   background: var(--charcoal);
-  color: var(--yellow);
+  color: var(--accent);
   font-family: var(--font-display);
   font-size: 0.92rem;
   letter-spacing: 0.04em;

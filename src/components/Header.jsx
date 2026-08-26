@@ -15,7 +15,9 @@ export default function Header() {
     <header className="site-header">
       <div className="wrap">
         <NavLink to="/" className="brand" onClick={() => setOpen(false)}>
-          <span className="brand-mark">SE</span>
+          <span className="brand-mark">
+            <img src="/images/brand/icon.png" alt="ตราสัญลักษณ์ สยาม เอราวัณ คอนสตรัคชั่น" />
+          </span>
           <span>
             <span className="brand-text-th" style={{ display: 'block' }}>สยาม เอราวัณ คอนสตรัคชั่น</span>
             <span className="brand-text-en">Siam Erawan Construction</span>
