@@ -38,7 +38,7 @@ export default function Contact() {
           <div className="map-frame">
             <iframe
               title="แผนที่บริษัท สยาม เอราวัณ คอนสตรัคชั่น"
-              src="https://www.google.com/maps?q=779+Sukhumvit+Rd,+Bang+Pu,+Mueang+Samut+Prakan,+Samut+Prakan+10280&output=embed"
+              src="https://www.google.com/maps?q=779+ม.1+Bang+Pu,+Mueang+Samut+Prakan+District,+Samut+Prakan+10280&output=embed"
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
             />
