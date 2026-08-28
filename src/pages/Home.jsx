@@ -2,11 +2,16 @@ import { Link } from 'react-router-dom'
 import SiteTag from '../components/SiteTag.jsx'
 import Reveal from '../components/Reveal.jsx'
 import CountUp from '../components/CountUp.jsx'
+import usePageMeta from '../hooks/usePageMeta.js'
 import { categories, projects } from '../data/projects.js'
 
 const featured = ['p4', 'p7', 'p17', 'p19']
 
 export default function Home() {
+  usePageMeta(
+    'รับเหมาก่อสร้างงานอุตสาหกรรม พาณิชย์ ที่พักอาศัย',
+    'บริษัท สยาม เอราวัณ คอนสตรัคชั่น จำกัด รับเหมาก่อสร้างงานวิศวกรรมโครงสร้างอุตสาหกรรม ปรับปรุงโรงงาน อาคารพาณิชย์ และที่พักอาศัย ในสมุทรปราการและทั่วประเทศ คุณภาพ ตรงเวลา ปลอดภัย'
+  )
   return (
     <>
       <section className="hero">

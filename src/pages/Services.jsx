@@ -1,9 +1,14 @@
 import { Link } from 'react-router-dom'
 import SiteTag from '../components/SiteTag.jsx'
 import Reveal from '../components/Reveal.jsx'
+import usePageMeta from '../hooks/usePageMeta.js'
 import { categories, projects } from '../data/projects.js'
 
 export default function Services() {
+  usePageMeta(
+    'บริการของเรา',
+    'บริการรับเหมาก่อสร้าง 4 กลุ่มหลัก วิศวกรรมโครงสร้างอุตสาหกรรม ปรับปรุงโรงงาน ออกแบบก่อสร้างอาคารพาณิชย์ และรีโนเวทที่พักอาศัย โดยทีมช่างและวิศวกรมืออาชีพ'
+  )
   return (
     <>
       <section className="section" style={{ paddingBottom: 40 }}>

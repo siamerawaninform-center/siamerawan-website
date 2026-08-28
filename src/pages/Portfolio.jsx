@@ -1,9 +1,14 @@
 import { Link, useSearchParams } from 'react-router-dom'
 import SiteTag from '../components/SiteTag.jsx'
 import Reveal from '../components/Reveal.jsx'
+import usePageMeta from '../hooks/usePageMeta.js'
 import { categories, projects } from '../data/projects.js'
 
 export default function Portfolio() {
+  usePageMeta(
+    'ผลงานของเรา',
+    'ตัวอย่างผลงานกว่า 300 โครงการที่ส่งมอบแล้ว ภาพจริงจากหน้างานจริง ทั้งโครงการภาคอุตสาหกรรม อาคารพาณิชย์ และที่พักอาศัย โดยสยาม เอราวัณ คอนสตรัคชั่น'
+  )
   const [params, setParams] = useSearchParams()
   const active = params.get('cat') || 'all'
 

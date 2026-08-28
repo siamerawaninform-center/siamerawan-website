@@ -1,4 +1,10 @@
+import usePageMeta from '../hooks/usePageMeta.js'
+
 export default function Contact() {
+  usePageMeta(
+    'ติดต่อเรา',
+    'ติดต่อบริษัท สยาม เอราวัณ คอนสตรัคชั่น จำกัด โทร 098-825-7519 อีเมล siamerawan.inform@gmail.com ที่อยู่ 779 หมู่ 1 ถ.สุขุมวิท ต.บางปู อ.เมืองสมุทรปราการ จ.สมุทรปราการ 10280'
+  )
   return (
     <section className="section">
       <div className="wrap">

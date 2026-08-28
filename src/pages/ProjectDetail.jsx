@@ -1,11 +1,17 @@
 import { useParams, Link, Navigate } from 'react-router-dom'
 import SiteTag from '../components/SiteTag.jsx'
 import Reveal from '../components/Reveal.jsx'
+import usePageMeta from '../hooks/usePageMeta.js'
 import { categories, projects, projectImages } from '../data/projects.js'
 
 export default function ProjectDetail() {
   const { id } = useParams()
   const project = projects.find((p) => p.id === id)
+
+  usePageMeta(
+    project?.title,
+    project ? `ผลงาน ${project.title} ลูกค้า ${project.client} สถานที่ ${project.location} โดยสยาม เอราวัณ คอนสตรัคชั่น` : undefined
+  )
 
   if (!project) return <Navigate to="/portfolio" replace />
 
