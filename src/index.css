@@ -795,11 +795,12 @@ a:hover > .site-tag img,
 
 .pill-quote {
   display: inline-block;
-  margin-top: 24px;
-  padding: 12px 20px;
-  background: var(--charcoal);
-  color: var(--accent);
+  margin-top: 28px;
+  padding: 22px 34px;
+  background: var(--burgundy);
+  color: var(--yellow);
   font-family: var(--font-display);
-  font-size: 0.92rem;
-  letter-spacing: 0.04em;
+  font-size: clamp(1.5rem, 3vw, 2.1rem);
+  font-weight: 600;
+  letter-spacing: 0.03em;
 }
