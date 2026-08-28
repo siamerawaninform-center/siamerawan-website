@@ -15,7 +15,8 @@ export default function Portfolio() {
         <span className="eyebrow">ผลงานที่ผ่านมา</span>
         <h1 style={{ marginTop: 10, fontSize: 'clamp(1.9rem, 4vw, 2.6rem)' }}>โครงการที่เราส่งมอบแล้ว</h1>
         <p style={{ marginTop: 16, color: 'var(--steel)', maxWidth: '62ch', fontSize: '1.02rem', marginBottom: 40 }}>
-          ภาพจริงจากหน้างานจริง รวบรวมจากโครงการภาคอุตสาหกรรม อาคารพาณิชย์ และที่พักอาศัยของเรา
+          ตั้งแต่ก่อตั้งบริษัทเราส่งมอบงานไปแล้วกว่า 300 โครงการ นี่คือตัวอย่างส่วนหนึ่งพร้อมภาพจริงจากหน้างานจริง
+          ครอบคลุมโครงการภาคอุตสาหกรรม อาคารพาณิชย์ และที่พักอาศัย
         </p>
 
         <div className="filter-bar">

@@ -88,8 +88,8 @@ export default function Home() {
             <div className="label">กลุ่มงานบริการหลัก</div>
           </Reveal>
           <Reveal as="div" className="stat" delay={160}>
-            <div className="n"><CountUp to={19} suffix="+" /></div>
-            <div className="label">โครงการที่ส่งมอบแล้ว</div>
+            <div className="n"><CountUp to={300} suffix="+" /></div>
+            <div className="label">โครงการที่ส่งมอบแล้วตั้งแต่ก่อตั้งบริษัท</div>
           </Reveal>
           <Reveal as="div" className="stat" delay={240}>
             <div className="n"><CountUp to={100} suffix="%" /></div>
@@ -133,7 +133,7 @@ export default function Home() {
           <Reveal className="section-head">
             <span className="eyebrow">ผลงานที่ผ่านมา</span>
             <h2>งานจริง ลูกค้าจริง หน้างานจริง</h2>
-            <p>ตัวอย่างส่วนหนึ่งจากโครงการที่เราส่งมอบให้กับลูกค้าทั้งภาคอุตสาหกรรม พาณิชย์ และที่พักอาศัย</p>
+            <p>ตลอดเส้นทางกว่า 300 โครงการ นี่คือตัวอย่างส่วนหนึ่งที่เราส่งมอบให้กับลูกค้าทั้งภาคอุตสาหกรรม พาณิชย์ และที่พักอาศัย</p>
           </Reveal>
           <div className="portfolio-grid">
             {featured.map((id, i) => {
