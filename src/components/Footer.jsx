@@ -8,9 +8,7 @@ export default function Footer() {
         <div className="footer-grid">
           <div>
             <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 16 }}>
-              <span className="brand-mark">
-                <img src="/images/brand/icon.png" alt="ตราสัญลักษณ์ สยาม เอราวัณ คอนสตรัคชั่น" />
-              </span>
+              <span className="brand-mark">SE</span>
               <div>
                 <div style={{ fontWeight: 700 }}>บริษัท สยาม เอราวัณ คอนสตรัคชั่น จำกัด</div>
                 <div className="brand-text-en">Siam Erawan Construction Co., Ltd.</div>

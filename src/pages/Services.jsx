@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import SiteTag from '../components/SiteTag.jsx'
+import Reveal from '../components/Reveal.jsx'
 import { categories, projects } from '../data/projects.js'
 
 export default function Services() {
@@ -26,8 +27,10 @@ export default function Services() {
           <section className="section" key={c.slug} style={{ background: i % 2 ? 'var(--paper-raised)' : 'transparent' }}>
             <div className="wrap">
               <div className="about-grid">
-                <SiteTag src={c.cover} alt={c.th} label={`0${i + 1}`} className="about-photo" />
-                <div>
+                <Reveal variant="reveal-scale">
+                  <SiteTag src={c.cover} alt={c.th} label={`0${i + 1}`} className="about-photo" />
+                </Reveal>
+                <Reveal delay={120}>
                   <span className="eyebrow">{`0${i + 1} · ${c.en}`}</span>
                   <h2 style={{ marginTop: 10, fontSize: 'clamp(1.4rem, 2.6vw, 1.9rem)' }}>{c.th}</h2>
                   <p style={{ marginTop: 16, color: 'var(--steel)', fontSize: '1rem' }}>{c.desc}</p>
@@ -50,7 +53,7 @@ export default function Services() {
                       </Link>
                     </div>
                   )}
-                </div>
+                </Reveal>
               </div>
             </div>
           </section>
@@ -58,14 +61,14 @@ export default function Services() {
       })}
 
       <section className="section cta-band">
-        <div className="wrap">
+        <Reveal className="wrap">
           <span className="eyebrow on-dark">ปรึกษาโครงการของคุณ</span>
           <h2 style={{ marginTop: 10 }}>ไม่แน่ใจว่างานของคุณเข้าข่ายไหน? โทรคุยกับเราได้เลย</h2>
           <div className="btn-row">
             <a href="tel:0988257519" className="btn btn-primary">โทร 098-825-7519</a>
             <Link to="/contact" className="btn btn-outline dark-ctx">ดูข้อมูลติดต่อทั้งหมด</Link>
           </div>
-        </div>
+        </Reveal>
       </section>
     </>
   )

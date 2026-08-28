@@ -1,5 +1,6 @@
 import { useParams, Link, Navigate } from 'react-router-dom'
 import SiteTag from '../components/SiteTag.jsx'
+import Reveal from '../components/Reveal.jsx'
 import { categories, projects, projectImages } from '../data/projects.js'
 
 export default function ProjectDetail() {
@@ -21,7 +22,7 @@ export default function ProjectDetail() {
           <Link to="/portfolio" className="eyebrow" style={{ display: 'inline-block', marginBottom: 18 }}>
             ← ผลงานทั้งหมด
           </Link>
-          <div className="cat" style={{ fontFamily: 'var(--font-display)', fontSize: '0.78rem', color: 'var(--yellow-deep)', textTransform: 'uppercase', letterSpacing: '0.08em' }}>
+          <div className="cat" style={{ fontFamily: 'var(--font-display)', fontSize: '0.78rem', color: 'var(--accent)', textTransform: 'uppercase', letterSpacing: '0.08em' }}>
             {cat?.en}
           </div>
           <h1 style={{ marginTop: 10, fontSize: 'clamp(1.6rem, 3.6vw, 2.3rem)', maxWidth: '26ch' }}>{project.title}</h1>
@@ -30,14 +31,18 @@ export default function ProjectDetail() {
 
       <section className="section" style={{ paddingTop: 32 }}>
         <div className="wrap">
-          <SiteTag src={images[0]} alt={project.title} className="project-hero-img" />
+          <Reveal variant="reveal-scale">
+            <SiteTag src={images[0]} alt={project.title} className="project-hero-img" />
+          </Reveal>
 
           <div className="project-detail-grid">
             <div>
               <div className="eyebrow" style={{ marginBottom: 16 }}>ภาพหน้างาน</div>
               <div className="detail-photo-grid">
                 {images.slice(1).map((src, i) => (
-                  <SiteTag src={src} alt={`${project.title} ${i + 2}`} key={src} />
+                  <Reveal as="div" delay={i * 90} key={src}>
+                    <SiteTag src={src} alt={`${project.title} ${i + 2}`} />
+                  </Reveal>
                 ))}
               </div>
             </div>
